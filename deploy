@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -e
+
+USER=ubuntu
+HOST=frc.link
+APP=frclinks2
+SCRIPT_NAME=frclinks_server
+
+echo "Deploying $APP from Git master branch..."
+echo
+ssh $USER@$HOST "cd /opt/sites/$APP && git checkout -f && git pull && bundle install && bundle exec rake db:migrate && bundle exec ruby ${SCRIPT_NAME}_control.rb restart"
+echo
+echo "Deployed $APP."
