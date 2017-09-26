@@ -71,7 +71,7 @@ module FrcLinks
           }
         }
       }.to_json
-      response = HTTParty.get("http://es01.usfirst.org/teams/_search?size=1&source=#{query}")
+      response = HTTParty.get("http://es01.usfirst.org/teams/_search?size=1&source=#{URI.encode(query)}")
       team_info = response["hits"]["hits"][0]["_source"] rescue nil
       halt(400, "No information found for team #{team}.") if team_info.nil?
       team_info
