@@ -55,19 +55,9 @@ module FrcLinks
       redirect "https://www.youtube.com/user/FRCTeamsGlobal"
     end
 
-    # Redirects to the Team Information Management System.
-    get /^\/tims$/ do
+    # Redirects to the Team/Volunteer/Student Team Information Management System.
+    get /^\/(t|st|v)ims$/ do
       redirect "https://my.firstinspires.org/Dashboard/"
-    end
-
-    # Redirects to the Student Team Information Management System.
-    get /^\/stims$/ do
-      "The new STIMS hasn't been launched yet."
-    end
-
-    # Redirects to the Volunteer Information Management System.
-    get /^\/vims$/ do
-      redirect "https://my.firstinspires.org/FIRSTPortal/Login/VIMS_Login.aspx"
     end
 
     # Redirects to the The Blue Alliance homepage.
