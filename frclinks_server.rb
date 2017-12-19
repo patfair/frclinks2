@@ -3,6 +3,7 @@
 #
 # The main class of the FRCLinks server.
 
+require "cheesy-common"
 require "httparty"
 require "pathological"
 require "sinatra/base"
@@ -13,7 +14,6 @@ require "team_links"
 
 module FrcLinks
   class Server < Sinatra::Base
-    FIRST_API_TOKEN = "cGF0ZmFpclQwMjU0OkZFREFGNjJCLUYzMDUtNEI0MC05QUUzLTNCQTNBQTg1RUM3MQ=="
     EVENTS_FILE = "events.json"
 
     not_found do
@@ -27,7 +27,7 @@ module FrcLinks
     # Fetches the list of events for the current year and caches it in a local file.
     get "/reindex_events" do
       response = HTTParty.get("https://frc-api.firstinspires.org/v2.0/#{default_year}/events",
-        :headers => { "Authorization" => "Basic #{FIRST_API_TOKEN}" })
+        :headers => { "Authorization" => "Basic #{CheesyCommon::Config.frc_api_token}" })
 
       events = []
       response["Events"].each do |event|

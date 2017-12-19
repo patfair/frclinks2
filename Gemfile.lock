@@ -1,6 +1,15 @@
+GIT
+  remote: https://github.com/Team254/cheesy-common.git
+  revision: 3b67984fe653dba5ab79532dd69587de0a586928
+  specs:
+    cheesy-common (0.0.1)
+      aescrypt (~> 1.0)
+      httparty (~> 0.13)
+
 GEM
   remote: https://rubygems.org/
   specs:
+    aescrypt (1.0.0)
     daemons (1.2.4)
     eventmachine (1.2.5)
     httparty (0.14.0)
@@ -25,6 +34,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cheesy-common!
   daemons
   httparty
   pathological

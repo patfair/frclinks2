@@ -1,0 +1,10 @@
+{
+  "global": {
+    "frc_api_token": "Encrypted:c1MFTVN0Letos1Dp1dZp8jdq3ZCE7c09dbURmIWPd3KeFVoP8S6Pbv6hQ9DF\nrYFuAu2DWenG8Ok1jBOfsfK0gw==\n",
+    "port": 9002
+  },
+  "dev": {
+  },
+  "prod": {
+  }
+}
