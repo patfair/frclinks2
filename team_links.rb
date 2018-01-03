@@ -22,7 +22,7 @@ module FrcLinks
     get /^\/(t|teams?)\/([A-Za-z%20]+)(\/([A-Za-z]+))?$/ do
       country = params["captures"][1]
       stateprov = params["captures"][3]
-      url = "#{TEAM_SEARCH_URL}#type=teams&sort=number&programs=FRC&year=#{default_year}&country=#{country}"
+      url = "#{TEAM_SEARCH_URL}#type=teams&sort=number&programs=FRC&year=#{default_year - 1}&country=#{country}"
       url += "&stateprov=#{stateprov}" if stateprov
       redirect url
     end
