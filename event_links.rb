@@ -61,7 +61,7 @@ module FrcLinks
     get /^\/(dr|districtrankings?)\/([A-Za-z]+)(\/(\d+))?$/ do
       district = params["captures"][1]
       year = params["captures"][3] || default_year
-      redirect "http://frc-districtrankings.firstinspires.org/#{year}/#{district}"
+      redirect "#{EVENT_URL}/#{year}/district/#{district}"
     end
 
     # Redirects to the Kickoff page.
