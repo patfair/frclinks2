@@ -38,6 +38,7 @@ module FrcLinks
         name.gsub!(/ Event/, "")
         name.gsub!(/Festival de Robotique - /, "")
         name.gsub!(/ sponsored by.*/, "")
+        name.gsub!(/ \*.*/, "")
         events << { :code => event["code"].downcase, :name => name, :type => event["type"] }
       end
 
