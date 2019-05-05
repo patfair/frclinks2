@@ -15,6 +15,13 @@ module FrcLinks
       end
     end
 
+    # Redirects to a specific rule in the manual.
+    get /^\/(d|docs?|documents?)\/([A-Za-z])(\d+)$/i do
+      rule_type = params["captures"][1].upcase
+      rule_number = params["captures"][2]
+      redirect "https://frc-qa.firstinspires.org/manual/rule/#{rule_type}/#{rule_number}"
+    end
+
     # Redirects to the Kit of Parts page.
     get /^\/(k|kop|kitofparts)$/i do
       redirect "https://www.firstinspires.org/robotics/frc/kit-of-parts"
