@@ -6,7 +6,7 @@
 module FrcLinks
   class Server < Sinatra::Base
     # Redirects to the game documents page.
-    get /^\/(d|docs?|documents?)(\/(\d+))?$/ do
+    get /^\/(d|docs?|documents?)(\/(\d+))?$/i do
       year = params["captures"][2]
       if year && year != default_year.to_s
         redirect "https://www.firstinspires.org/node/5331"
@@ -16,52 +16,52 @@ module FrcLinks
     end
 
     # Redirects to the Kit of Parts page.
-    get /^\/(k|kop|kitofparts)$/ do
+    get /^\/(k|kop|kitofparts)$/i do
       redirect "https://www.firstinspires.org/robotics/frc/kit-of-parts"
     end
 
     # Redirects to the Team Updates page.
-    get /^\/(u|updates)$/ do
+    get /^\/(u|updates)$/i do
       redirect "https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system"
     end
 
     # Redirects to the FRC Blog.
-    get /^\/(b|blog)$/ do
+    get /^\/(b|blog)$/i do
       redirect "https://www.firstinspires.org/robotics/frc/blog"
     end
 
     # Redirects to the FIRST Forums.
-    get /^\/(f|forums?)$/ do
+    get /^\/(f|forums?)$/i do
       redirect "https://forums.usfirst.org"
     end
 
     # Redirects to the Q&A system.
-    get /^\/qa?$/ do
+    get /^\/qa?$/i do
       redirect "https://frc-qa.firstinspires.org"
     end
 
     # Redirects to the FRC news page.
-    get /^\/(n|news)$/ do
+    get /^\/(n|news)$/i do
       redirect "https://www.firstinspires.org/node/4341"
     end
 
     # Redirects to the FRC calendar.
-    get /^\/(cal|calendar)$/ do
+    get /^\/(cal|calendar)$/i do
       redirect "https://www.firstinspires.org/robotics/frc/calendar"
     end
 
     # Redirects to the FRC YouTube channel.
-    get /^\/(y|youtube)$/ do
+    get /^\/(y|youtube)$/i do
       redirect "https://www.youtube.com/user/FRCTeamsGlobal"
     end
 
     # Redirects to the Team/Volunteer/Student Team Information Management System.
-    get /^\/(t|st|v)ims$/ do
+    get /^\/(t|st|v)ims$/i do
       redirect "https://my.firstinspires.org/Dashboard/"
     end
 
     # Redirects to the The Blue Alliance homepage.
-    get /^\/tba$/ do
+    get /^\/tba$/i do
       redirect "https://www.thebluealliance.com"
     end
   end

@@ -8,18 +8,18 @@ module FrcLinks
     TEAM_SEARCH_URL = "https://www.firstinspires.org/team-event-search"
 
     # Redirects to the list of all teams.
-    get /^\/(t|teams?)$/ do
+    get /^\/(t|teams?)$/i do
       redirect "#{TEAM_SEARCH_URL}#type=teams&sort=number&programs=FRC&year=#{default_year - 1}"
     end
 
     # Redirects to the FIRST information page for the given team.
-    get /^\/(t|teams?)\/(\d+)$/ do
+    get /^\/(t|teams?)\/(\d+)$/i do
       team = params["captures"][1]
       redirect "#{TEAM_SEARCH_URL}/team?program=FRC&year=#{default_year}&number=#{team}"
     end
 
     # Redirects to the list of teams in the given area.
-    get /^\/(t|teams?)\/([A-Za-z%20]+)(\/([A-Za-z]+))?$/ do
+    get /^\/(t|teams?)\/([A-Za-z%20]+)(\/([A-Za-z]+))?$/i do
       country = params["captures"][1]
       stateprov = params["captures"][3]
       url = "#{TEAM_SEARCH_URL}#type=teams&sort=number&programs=FRC&year=#{default_year - 1}&country=#{country}"
@@ -28,7 +28,7 @@ module FrcLinks
     end
 
     # Redirects to the website for the given team.
-    get /^\/(w|website)\/(\d+)$/ do
+    get /^\/(w|website)\/(\d+)$/i do
       team = params["captures"][1]
       team_info = query_team(team)
       website_url = team_info["team_web_url"]
@@ -40,7 +40,7 @@ module FrcLinks
     end
 
     # Redirects to a Google Map of the given team's location.
-    get /^\/(m|map)\/(\d+)$/ do
+    get /^\/(m|map)\/(\d+)$/i do
       team = params["captures"][1]
       team_info = query_team(team)
       map_url = "https://www.google.com/maps?q=#{team_info["team_city"]}+#{team_info["team_stateprov"]}" +
@@ -52,13 +52,13 @@ module FrcLinks
     end
 
     # Redirects to the The Blue Alliance page for the given team.
-    get /^\/tba\/(\d+)$/ do
+    get /^\/tba\/(\d+)$/i do
       team = params["captures"][0]
       redirect "https://www.thebluealliance.com/team/#{team}"
     end
 
     # Redirects to the Chief Delphi Media page for the given team.
-    get /^\/cdm\/(\d+)$/ do
+    get /^\/cdm\/(\d+)$/i do
       team = params["captures"][0]
       redirect "http://www.chiefdelphi.com/media/photos/tags/frc#{team}"
     end
