@@ -15,7 +15,7 @@ module FrcLinks
     # Redirects to the FIRST information page for the given team.
     get /^\/(t|teams?)\/(\d+)$/i do
       team = params["captures"][1]
-      redirect "#{TEAM_SEARCH_URL}/team?program=FRC&year=#{default_year}&number=#{team}"
+      redirect "#{EVENT_URL}/team/#{team}"
     end
 
     # Redirects to the list of teams in the given area.
@@ -60,7 +60,7 @@ module FrcLinks
     # Redirects to the Chief Delphi Media page for the given team.
     get /^\/cdm\/(\d+)$/i do
       team = params["captures"][0]
-      redirect "http://www.chiefdelphi.com/media/photos/tags/frc#{team}"
+      redirect "https://www.chiefdelphi.com/search?q=tags%3Afrc#{team}%20%23cd-media"
     end
 
     def query_team(team)
