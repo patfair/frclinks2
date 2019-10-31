@@ -31,8 +31,8 @@ module FrcLinks
     get /^\/(w|website)\/(\d+)$/i do
       team = params["captures"][1]
       team_info = query_team(team)
-      website_url = team_info["team_web_url"]
-      halt(400, "No website found for team #{team}.") if website_url.nil?
+      website_url = team_info["website"]
+      halt(400, "No website found for team #{team}.") if website_url.empty?
       unless website_url.start_with?("http")
         website_url = "http://#{website_url}"
       end
@@ -43,11 +43,8 @@ module FrcLinks
     get /^\/(m|map)\/(\d+)$/i do
       team = params["captures"][1]
       team_info = query_team(team)
-      map_url = "https://www.google.com/maps?q=#{team_info["team_city"]}+#{team_info["team_stateprov"]}" +
-          "+#{team_info["team_country"]}"
-      if ["Canada", "USA", "United Kingdom"].include?(team_info["team_country"])
-        map_url += "+#{team_info["team_postalcode"]}"
-      end
+      map_url = "https://www.google.com/maps?q=#{team_info["city"]}+#{team_info["stateProv"]}" +
+          "+#{team_info["country"]}"
       redirect map_url
     end
 
@@ -71,8 +68,9 @@ module FrcLinks
           }
         }
       }.to_json
-      response = HTTParty.get("http://es01.usfirst.org/teams/_search?size=1&source=#{URI.encode(query)}")
-      team_info = response["hits"]["hits"][0]["_source"] rescue nil
+      response = HTTParty.get("https://frc-api.firstinspires.org/v2.0/#{default_year}/teams?teamNumber=#{team}",
+        :headers => { "Authorization" => "Basic #{CheesyCommon::Config.frc_api_token}" })
+      team_info = response["teams"][0] rescue nil
       halt(400, "No information found for team #{team}.") if team_info.nil?
       team_info
     end
