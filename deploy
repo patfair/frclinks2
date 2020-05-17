@@ -8,6 +8,6 @@ SCRIPT_NAME=frclinks_server
 
 echo "Deploying $APP from Git master branch..."
 echo
-ssh $USER@$HOST "cd /opt/patfairbank/$APP && git checkout -f && git pull && bundle install && bundle exec ruby ${SCRIPT_NAME}_control.rb restart"
+ssh $USER@$HOST "bash -l -c \"cd /opt/patfairbank/$APP && git checkout -f && git pull && bundle install && bundle exec ruby ${SCRIPT_NAME}_control.rb restart\""
 echo
 echo "Deployed $APP."
