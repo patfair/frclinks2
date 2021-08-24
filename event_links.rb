@@ -79,5 +79,13 @@ module FrcLinks
     get /\/(c|cmp|championship)/i do
       redirect "https://www.firstchampionship.org"
     end
+    
+    # Redirects to the COVID information for the given event.
+    get /\/(e|event)\/(v|covid)\/([A-Za-z]+\d?)(\/(\d+))?/i do
+      event = params["captures"][2]
+      year = params["captures"][4] || default_year
+      redirect "http://firstinspires.org/sites/default/files/uploads/frc/#{year}-events/#{year}_" +
+          "#{event.upcase}_SiteInfo.pdf"
+    end
   end
 end
