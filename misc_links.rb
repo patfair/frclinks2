@@ -27,6 +27,11 @@ module FrcLinks
       redirect "https://www.firstinspires.org/robotics/frc/kit-of-parts"
     end
 
+    # Redirects to the Playing Field page.
+    get /\/(p|pf|playingfield)/i do
+      redirect "https://www.firstinspires.org/robotics/frc/playing-field"
+    end
+
     # Redirects to the Team Updates page.
     get /\/(u|updates)/i do
       redirect "https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system"
