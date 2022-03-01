@@ -81,7 +81,7 @@ module FrcLinks
     # Redirects to the event list page for the given year.
     get /\/(r|regionals)(\/(\d+))?/i do
       year = params["captures"][2] || default_year
-      redirect "#{EVENT_URL}/#{year}/events"
+      redirect "#{EVENT_URL}/#{year}/events/eventlist"
     end
 
     # Redirects to the Championship website.
