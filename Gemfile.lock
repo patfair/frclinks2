@@ -20,7 +20,7 @@ GEM
     mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
     pathological (0.3.0)
-    rack (2.2.4)
+    rack (2.2.6.2)
     rack-protection (2.2.3)
       rack
     rake (13.0.1)
