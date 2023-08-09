@@ -42,6 +42,11 @@ module FrcLinks
       redirect "https://www.firstinspires.org/robotics/frc/blog"
     end
 
+    # Redirects to the FIRST Youth Protection Policy.
+    get /\/(ypp)/i do
+      redirect "https://www.firstinspires.org/resource-library/youth-protection-policy"
+    end
+
     # Redirects to the FIRST Forums.
     get /\/(f|forums?)/i do
       redirect "https://forums.usfirst.org"
