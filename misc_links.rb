@@ -43,7 +43,7 @@ module FrcLinks
     end
 
     # Redirects to the FIRST Youth Protection Policy.
-    get /\/(ypp)/i do
+    get /\/(ypp|youth-protection-policy)/i do
       redirect "https://www.firstinspires.org/resource-library/youth-protection-policy"
     end
 
