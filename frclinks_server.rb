@@ -38,6 +38,7 @@ module FrcLinks
         name.gsub!(/ District/, "")
         name.gsub!(/ Event/, "")
         name.gsub!(/Festival de Robotique - /, "")
+        name.gsub!(/ presented by.*/, "")
         name.gsub!(/ sponsored by.*/, "")
         name.gsub!(/ \(.*/, "")
         name.gsub!(/ \*.*/, "")
