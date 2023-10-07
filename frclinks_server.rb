@@ -32,12 +32,14 @@ module FrcLinks
       events = []
       response["Events"].each do |event|
         next if ["ChampionshipDivision", "OffSeasonWithAzureSync"].include?(event["type"])
+        next if event["name"].start_with?("I choose not to attend")
         name = event["name"]
         name.gsub!(/ Regional/, "")
         name.gsub!(/ District/, "")
         name.gsub!(/ Event/, "")
         name.gsub!(/Festival de Robotique - /, "")
         name.gsub!(/ sponsored by.*/, "")
+        name.gsub!(/ \(.*/, "")
         name.gsub!(/ \*.*/, "")
         events << { :code => event["code"].downcase, :name => name, :type => event["type"] }
       end
