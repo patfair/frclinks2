@@ -39,7 +39,7 @@ module FrcLinks
 
     # Redirects to the FRC Blog.
     get /\/(b|blog)/i do
-      redirect "https://www.firstinspires.org/robotics/frc/blog"
+      redirect "https://community.firstinspires.org/topic/frc"
     end
 
     # Redirects to the FIRST Youth Protection Policy.
