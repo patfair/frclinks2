@@ -58,19 +58,22 @@ module FrcLinks
       redirect "https://www.thebluealliance.com/event/#{year}#{event}"
     end
 
-    # Redirects to the COVID information for the given event.
-    get /\/(e|event)\/(c|covid)\/#{EVENT_CODE_REGEX}(\/(\d+))?/i do
-      event = params["captures"][2]
-      year = params["captures"][4] || default_year
-      redirect "http://firstinspires.org/sites/default/files/uploads/frc/#{year}-events/#{year}_" +
-          "#{event.upcase}_SiteInfo.pdf"
-    end
-
     # Redirects to the district ranking page for the given district.
     get /\/(dr|districtrankings?)\/([A-Za-z]+)(\/(\d+))?/i do
       district = params["captures"][1]
       year = params["captures"][3] || default_year
       redirect "#{EVENT_URL}/#{year}/district/#{district}"
+    end
+
+    # Redirects to the global regional advancement ranking page.
+    get /\/(ra|regionaladvancement?)/i do
+      redirect "#{EVENT_URL}/ra/"
+    end
+
+    # Redirects to the regional advancement ranking page for the given regional event.
+    get /\/(ra|regionaladvancement?)\/#{EVENT_CODE_REGEX}/i do
+      event = params["captures"][1]
+      redirect "#{EVENT_URL}/ra/regional/#{event.upcase}"
     end
 
     # Redirects to the Kickoff page.
