@@ -89,7 +89,7 @@ module FrcLinks
 
     # Redirects to the Championship website.
     get /\/(c|cmp|championship)/i do
-      redirect "https://www.firstchampionship.org"
+      redirect "https://www.firstinspires.org/resource-library/frc/championship-information"
     end
   end
 end
