@@ -9,9 +9,9 @@ module FrcLinks
     get /\/(d|docs?|documents?)(\/(\d+))?/i do
       year = params["captures"][2]
       if year && year != default_year.to_s
-        redirect "https://www.firstinspires.org/node/5331"
+        redirect "https://www.firstinspires.org/resources/library/frc/archived-games"
       else
-        redirect "https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system"
+        redirect "https://www.firstinspires.org/resources/library/frc/season-materials"
       end
     end
 
@@ -24,17 +24,17 @@ module FrcLinks
 
     # Redirects to the Kit of Parts page.
     get /\/(k|kop|kitofparts)/i do
-      redirect "https://www.firstinspires.org/robotics/frc/kit-of-parts"
+      redirect "https://www.firstinspires.org/resources/library/frc/kit-of-parts"
     end
 
     # Redirects to the Playing Field page.
     get /\/(p|pf|playingfield)/i do
-      redirect "https://www.firstinspires.org/robotics/frc/playing-field"
+      redirect "https://www.firstinspires.org/resources/library/frc/playing-field"
     end
 
     # Redirects to the Team Updates page.
     get /\/(u|updates)/i do
-      redirect "https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system"
+      redirect "https://www.firstinspires.org/resources/library/frc/season-materials"
     end
 
     # Redirects to the FRC Blog.
@@ -44,12 +44,12 @@ module FrcLinks
 
     # Redirects to the FIRST Youth Protection Policy.
     get /\/ypp/i do
-      redirect "https://www.firstinspires.org/resource-library/youth-protection-policy"
+      redirect "https://www.firstinspires.org/programs/youth-protection-program"
     end
     
     # Redirects to the FIRST Forums.
     get /\/(f|forums?)/i do
-      redirect "https://forums.usfirst.org"
+      redirect "https://forums.firstinspires.org/"
     end
 
     # Redirects to the Q&A system.
@@ -59,17 +59,17 @@ module FrcLinks
 
     # Redirects to the FRC news page.
     get /\/(n|news)/i do
-      redirect "https://www.firstinspires.org/node/4341"
+      redirect "https://www.firstinspires.org/resources/library/frc/team-blast-archive"
     end
 
     # Redirects to the FRC calendar.
     get /\/(cal|calendar)/i do
-      redirect "https://www.firstinspires.org/robotics/frc/calendar"
+      redirect "https://www.firstinspires.org/programs/calendar?view=calendar&program=frc"
     end
 
     # Redirects to the FRC YouTube channel.
     get /\/(y|youtube)/i do
-      redirect "https://www.youtube.com/user/FRCTeamsGlobal"
+      redirect "https://www.youtube.com/@FIRSTRoboticsCompetition"
     end
 
     # Redirects to the Team/Volunteer/Student Team Information Management System.
