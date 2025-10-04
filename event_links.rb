@@ -78,7 +78,7 @@ module FrcLinks
 
     # Redirects to the Kickoff page.
     get /\/(ko|kickoff)/i do
-      redirect "https://www.firstinspires.org/robotics/frc/kickoff"
+      redirect "https://www.firstinspires.org/programs/frc/game-and-season#kickoff"
     end
 
     # Redirects to the event list page for the given year.
@@ -89,7 +89,7 @@ module FrcLinks
 
     # Redirects to the Championship website.
     get /\/(c|cmp|championship)/i do
-      redirect "https://www.firstinspires.org/resource-library/frc/championship-information"
+      redirect "https://www.firstinspires.org/resources/library/frc/championship-information"
     end
   end
 end
