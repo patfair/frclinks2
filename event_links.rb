@@ -47,7 +47,7 @@ module FrcLinks
     get /\/(e|event)\/(g|agenda)\/#{EVENT_CODE_REGEX}(\/(\d+))?/i do
       event = params["captures"][2]
       year = params["captures"][4] || default_year
-      redirect "http://firstinspires.org/sites/default/files/uploads/frc/#{year}-events/#{year}_" +
+      redirect "https://info.firstinspires.org/hubfs/web/event/frc/#{year}/#{year}_" +
           "#{event.upcase}_Agenda.pdf"
     end
 
